@@ -1,0 +1,54 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionItem } from "@/components/ui/accordion";
+import { TestimonialSlider } from "@/components/TestimonialSlider";
+
+export default function Home() {
+  return (
+    <div className="bg-gray-900 text-white min-h-screen">
+      {/* Hero Section */}
+      <section className="text-center py-20 px-6">
+        <h1 className="text-5xl font-bold">Automatize Sua Agência em 48h</h1>
+        <p className="mt-4 text-lg text-gray-300">
+          Templates N8N + IA para criar anúncios, páginas e funis completos sem esforço.
+        </p>
+        <Button className="mt-6 bg-blue-500 hover:bg-blue-600">Comece Agora</Button>
+      </section>
+
+      {/* Benefícios */}
+      <section className="py-16 px-6 grid md:grid-cols-3 gap-6">
+        {[
+          "Criação rápida de funis completos",
+          "Totalmente automatizado com IA",
+          "Pronto para implementação imediata",
+        ].map((benefit, index) => (
+          <Card key={index} className="p-6 bg-gray-800">
+            <CardContent>{benefit}</CardContent>
+          </Card>
+        ))}
+      </section>
+
+      {/* Depoimentos */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-bold text-center">O que nossos clientes dizem</h2>
+        <TestimonialSlider />
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 px-6">
+        <h2 className="text-3xl font-bold text-center">Perguntas Frequentes</h2>
+        <Accordion>
+          {[
+            { question: "Como os templates funcionam?", answer: "Os templates são prontos para uso no N8N e podem ser implementados em minutos." },
+            { question: "Preciso de conhecimento técnico?", answer: "Não! As aulas explicam tudo passo a passo." },
+          ].map((faq, index) => (
+            <AccordionItem key={index} title={faq.question}>
+              {faq.answer}
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </section>
+    </div>
+  );
+}
